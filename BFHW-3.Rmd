@@ -1,0 +1,36 @@
+---
+title: "homework 3"
+author: "Naga Asritha Narra"
+date: "2022-09-25"
+output: html_document
+---
+
+
+
+
+
+
+
+
+
+```{r}
+library(MASS)
+library(fpp)
+library(fpp2)
+AirPassengers
+plot(AirPassengers)
+Acf(AirPassengers)
+tmp <- HoltWinters(AirPassengers)
+attributes(tmp)
+plot(tmp)
+tmp_f <- forecast::forecast(tmp)
+attributes(tmp_f)
+plot(tmp_f$residuals)
+hist(tmp_f$residuals)
+accuracy(tmp_f)
+ zoo <- window(AirPassengers,1952)
+zoo <- window(AirPassengers,1957)
+plot(zoo)
+acf(zoo)
+```
+
